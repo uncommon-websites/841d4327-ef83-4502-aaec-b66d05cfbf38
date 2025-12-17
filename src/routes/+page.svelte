@@ -5,10 +5,26 @@
   import IntuitiveWindowContent from '$lib/components/IntuitiveWindowContent.svelte';
   import SmartWindowContent from '$lib/components/SmartWindowContent.svelte';
   import SafeWindowContent from '$lib/components/SafeWindowContent.svelte';
-  import StorageLogos from '$lib/components/StorageLogos.svelte';
+  import VenueHighlight from '$lib/components/VenueHighlight.svelte';
+  import FeaturedSpeakers from '$lib/components/FeaturedSpeakers.svelte';
+  import Stats from '$lib/components/Stats.svelte';
+  import Schedule from '$lib/components/Schedule.svelte';
+  import Testimonials from '$lib/components/Testimonials.svelte';
+  import Partners from '$lib/components/Partners.svelte';
+  import FinalCTA from '$lib/components/FinalCTA.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import Cursor from '$lib/components/Cursor.svelte';
 </script>
+
+<svelte:head>
+  <title>TEDAI Vienna 2025 | Europe's Premier AI Conference</title>
+  <meta name="description" content="Join 500+ AI leaders from 40+ countries at TEDAI Vienna. Three days of curated TED Talks, workshops, and collaboration at the historic Hofburg Imperial Palace. September 24-26, 2025." />
+  <meta property="og:title" content="TEDAI Vienna 2025 | Europe's Premier AI Conference" />
+  <meta property="og:description" content="Join 500+ AI leaders from 40+ countries at TEDAI Vienna. Three days of curated TED Talks, workshops, and collaboration at the historic Hofburg Imperial Palace." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TEDAI Vienna 2025 | Europe's Premier AI Conference" />
+  <meta name="twitter:description" content="Join 500+ AI leaders from 40+ countries at TEDAI Vienna. September 24-26, 2025 at Hofburg Imperial Palace." />
+</svelte:head>
 
 <Navbar />
 
@@ -16,37 +32,39 @@
   <Hero />
 
   <FeatureSection 
-    title="Intuitive" 
-    description="No more lost files. With Shuttle, your files are exactly where you need them, all the time."
-    cursorName="Jean"
-    cursorColor="orange"
-    cursorPosition="top-20 right-[15%] md:right-[20%]"
+    title="Curated Excellence" 
+    description="20+ TED Talks from world-class speakers including leaders from OpenAI, Google DeepMind, IBM Research, and the European Commission. Every talk is fact-checked and curated to TED's highest standards."
   >
     <IntuitiveWindowContent />
   </FeatureSection>
 
   <FeatureSection 
-    title="Smart" 
-    description="No more tool-hopping. Shuttle brings sharing and AI powered workflows into one smart workspace — so your files move faster, and you do too."
-    cursorName="Giel"
-    cursorColor="blue"
-    cursorPosition="bottom-20 right-[10%] md:right-[15%]"
+    title="Cross-Industry Collaboration" 
+    description="Connect with 500+ AI leaders from 40+ countries and 300+ organizations. Engage in panels, workshops, themed dinners, and idea adventures designed to foster meaningful collaboration."
   >
-    <div slot="extra-cursors">
-      <Cursor name="Niels" color="red" className="top-20 left-[10%] md:left-[15%]" />
-    </div>
     <SmartWindowContent />
   </FeatureSection>
 
   <FeatureSection 
-    title="Safe" 
-    description="Your files, your rules. Shuttle protects your IP by running AI inference in-house and giving you the option to host your files on your own server - so you stay in control, always."
+    title="Exclusive Community" 
+    description="Application-only, invite-only conference at Vienna's historic Hofburg Imperial Palace. One in three attendees holds executive-level positions, creating an unparalleled networking environment."
   >
-    <div slot="after-cta" class="mb-8">
-      <StorageLogos />
-    </div>
     <SafeWindowContent />
   </FeatureSection>
+
+  <FeaturedSpeakers />
+
+  <Stats />
+
+  <VenueHighlight />
+
+  <Schedule />
+
+  <Testimonials />
+
+  <Partners />
+
+  <FinalCTA />
 
   <Footer />
 </main>

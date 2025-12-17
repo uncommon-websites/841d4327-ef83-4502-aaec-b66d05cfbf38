@@ -1,56 +1,48 @@
 <script>
-  import FileIcon from './FileIcon.svelte';
+  const speakers = [
+    { name: 'Anna W. Topol', role: 'CTO, IBM Research', company: 'IBM' },
+    { name: 'Joscha Bach', role: 'CEO, California Institute', company: 'CIMC' },
+    { name: 'Lukasz Kaiser', role: 'Researcher', company: 'OpenAI' },
+    { name: 'Oriol Vinyals', role: 'Research VP', company: 'DeepMind' },
+    { name: 'Swami Sivasubramanian', role: 'VP Agentic AI', company: 'AWS' },
+    { name: 'Hiroaki Kitano', role: 'President & CEO', company: 'Sony CSL' },
+  ];
 </script>
 
-<div class="w-full h-full min-h-[500px] bg-gray-50 relative p-8">
-  <!-- Background Files -->
-  <FileIcon type="ai" name="Fashion Week Logo.ai" date="April 5, 2025 08:15" className="absolute top-1/2 left-16 -translate-y-1/2" />
-  <FileIcon type="ps" name="Shoot '25.psd" date="March 10, 2025 09:45" className="absolute top-1/2 right-16 -translate-y-1/2" />
-
-  <!-- Preview Modal -->
-  <div class="absolute top-8 left-1/2 -translate-x-1/2 w-[400px] h-[440px] bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col z-10">
-    <!-- Modal Header -->
-    <div class="h-10 border-b border-gray-100 flex items-center justify-between px-3 bg-white">
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 grid grid-cols-2 gap-0.5">
-           <div class="bg-gray-400 rounded-[1px]"></div><div class="bg-gray-400 rounded-[1px]"></div>
-           <div class="bg-gray-400 rounded-[1px]"></div><div class="bg-gray-400 rounded-[1px]"></div>
+<div class="w-full h-full min-h-[500px] bg-gradient-to-br from-gray-50 to-gray-100 relative p-8 flex items-center justify-center">
+  
+  <!-- Speaker Cards Grid -->
+  <div class="grid grid-cols-3 gap-4 max-w-4xl">
+    {#each speakers as speaker, i}
+      <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+        <!-- Avatar -->
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 mx-auto mb-3 flex items-center justify-center text-white font-bold text-lg">
+          {speaker.name.split(' ').map(n => n[0]).join('')}
         </div>
-        <span class="text-[12px] font-medium text-gray-700">Preview</span>
+        
+        <!-- Name -->
+        <h3 class="text-sm font-semibold text-gray-900 text-center mb-1 leading-tight">{speaker.name}</h3>
+        
+        <!-- Role -->
+        <p class="text-xs text-gray-500 text-center leading-tight mb-1">{speaker.role}</p>
+        
+        <!-- Company Badge -->
+        <div class="flex justify-center mt-2">
+          <span class="text-[10px] font-medium text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">{speaker.company}</span>
+        </div>
       </div>
-      <button aria-label="Close preview" class="text-gray-400 hover:text-gray-600">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-    
-    <!-- Modal Content (Image) -->
-    <div class="flex-1 bg-gray-100 relative overflow-hidden">
-       <!-- Red Tile Pattern Image -->
-       <div class="absolute inset-0 bg-red-500">
-          <div class="absolute inset-0 opacity-50" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,255,255,0.2) 5px, rgba(255,255,255,0.2) 10px);"></div>
-          <!-- Some shadow/depth to look like a room/wall as in screenshot -->
-          <div class="absolute left-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-black/20 to-transparent"></div>
-       </div>
-       <!-- Fake UI elements on image if needed? The screenshot shows a wall with tiles and some fixtures. I'll just keep it abstract red tiles. -->
-       <!-- Actually, let's try to make it look a bit more like the screenshot: Split view, left side wood/beige, right side red tiles. -->
-       <div class="absolute inset-0 flex">
-          <div class="w-1/3 bg-[#C4A484] relative">
-             <!-- Wood texture simulation -->
-             <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-4 h-4 bg-black/50 rounded-full shadow-lg"></div>
-          </div>
-          <div class="w-2/3 bg-red-500 relative overflow-hidden">
-             <!-- Tiles -->
-             <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
-             <!-- Fixtures -->
-             <div class="absolute bottom-1/4 left-8 flex gap-4">
-                <div class="w-8 h-8 bg-white/90 rounded shadow-md"></div>
-                <div class="w-8 h-8 bg-white/90 rounded shadow-md"></div>
-             </div>
-          </div>
-       </div>
-    </div>
+    {/each}
   </div>
+  
+  <!-- Floating badge -->
+  <div class="absolute top-8 right-8 bg-white rounded-xl px-4 py-3 shadow-lg border border-gray-200">
+    <div class="text-xs text-gray-500 mb-1">Featured Speakers</div>
+    <div class="text-2xl font-bold text-gray-900">20+</div>
+  </div>
+  
+  <!-- TED Circle Logo -->
+  <div class="absolute bottom-8 left-8 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
+    <span class="text-white font-bold text-[10px] text-center leading-tight">TED<br/>AI</span>
+  </div>
+
 </div>

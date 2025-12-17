@@ -17,14 +17,14 @@
     </p>
     
     <div class="flex flex-col items-center gap-2">
-      <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-colors shadow-sm shadow-blue-200">
+      <a href="#apply" class="bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-colors shadow-sm">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3.5 h-3.5">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
           <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
-        Upload File
-      </button>
-      <span class="text-[10px] text-gray-400 font-medium tracking-wide uppercase">2GB for free</span>
+        Join Waitlist for 2026
+      </a>
+      <span class="text-[10px] text-gray-400 font-medium tracking-wide uppercase">2025 Event Sold Out</span>
     </div>
     
     <div class="mt-12">

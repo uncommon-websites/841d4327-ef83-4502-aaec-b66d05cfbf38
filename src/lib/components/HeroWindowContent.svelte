@@ -1,58 +1,60 @@
 <script>
-  import Cursor from './Cursor.svelte';
 </script>
 
-<div class="w-full h-full min-h-[500px] bg-gray-50/50 p-8 relative flex items-center justify-center">
+<div class="w-full h-full min-h-[500px] bg-gradient-to-b from-gray-900 to-black relative flex items-center justify-center overflow-hidden">
   
-  <!-- File 1: Red Image -->
-  <div class="absolute top-12 left-1/3 -translate-x-1/2 w-32 h-24 bg-white p-1.5 rounded-lg shadow-sm border border-gray-200 rotate-[-6deg] z-10">
-    <div class="w-full h-full rounded bg-red-500 overflow-hidden relative">
-       <!-- Pattern for red tiles -->
-       <div class="absolute inset-0 opacity-50" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,255,255,0.2) 5px, rgba(255,255,255,0.2) 10px);"></div>
-       <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%);"></div>
+  <!-- Stage with red accent -->
+  <div class="absolute bottom-0 left-0 right-0 h-2 bg-primary-600"></div>
+  
+  <!-- Spotlight effect -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial from-white/10 via-transparent to-transparent rounded-full blur-3xl"></div>
+  
+  <!-- Speaker silhouette -->
+  <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+    <div class="w-16 h-16 rounded-full bg-gradient-to-b from-gray-700 to-gray-800 mb-4 relative">
+      <div class="absolute inset-2 rounded-full bg-gradient-to-b from-gray-600 to-gray-700"></div>
+    </div>
+    <div class="w-20 h-32 bg-gradient-to-b from-gray-700 to-gray-800 rounded-t-full relative">
+      <div class="absolute top-4 left-1/2 -translate-x-1/2 w-12 h-20 bg-gradient-to-b from-gray-600 to-gray-700 rounded-t-lg"></div>
     </div>
   </div>
-
-  <!-- File 2: Video File -->
-  <div class="absolute top-16 right-1/3 translate-x-1/2 w-24 h-28 bg-white/90 backdrop-blur rounded-lg shadow-sm border border-gray-200 rotate-[4deg] flex flex-col items-center justify-center gap-2 z-10">
-    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-300 flex items-center justify-center shadow-inner">
-      <div class="w-6 h-6 bg-black/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-        <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3 text-white ml-0.5">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      </div>
-    </div>
-    <span class="text-[10px] font-medium text-gray-500">MP4</span>
+  
+  <!-- Audience silhouettes -->
+  <div class="absolute bottom-0 left-0 right-0 flex items-end justify-center gap-1 opacity-60">
+    <div class="w-6 h-24 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-28 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-20 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-32 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-24 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-26 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-40"></div>
+    <div class="w-6 h-26 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-22 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-30 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-24 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-28 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
+    <div class="w-6 h-20 bg-gradient-to-t from-gray-800 to-gray-900 rounded-t-lg"></div>
   </div>
-
-  <!-- Drag & Drop Zone -->
-  <div class="w-[280px] h-[180px] rounded-2xl border-2 border-dashed border-gray-200 bg-white flex flex-col items-center justify-center gap-4 relative z-0">
-    <div class="relative w-16 h-16">
-      <!-- Icons cluster -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8 text-gray-400">
-           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-           <polyline points="14 2 14 8 20 8"></polyline>
-        </svg>
-      </div>
-      <div class="absolute bottom-0 left-0">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-gray-400 rotate-[-12deg]">
-           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-           <circle cx="8.5" cy="8.5" r="1.5"></circle>
-           <polyline points="21 15 16 10 5 21"></polyline>
-        </svg>
-      </div>
-      <div class="absolute bottom-2 right-0">
-         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-gray-400 rotate-[12deg]">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-         </svg>
-      </div>
-    </div>
-    <span class="text-sm font-semibold text-gray-900">Drag & Drop</span>
+  
+  <!-- TED-style circular logo in corner -->
+  <div class="absolute top-8 right-8 w-16 h-16 rounded-full bg-primary-600 flex items-center justify-center text-white font-bold text-xs opacity-80">
+    <span>TED<br/>AI</span>
   </div>
-
-  <!-- Cursors -->
-  <Cursor name="Giel" color="yellow" className="absolute top-[35%] left-[42%]" />
-  <Cursor name="Jean" color="orange" className="absolute top-[35%] right-[40%]" />
+  
+  <!-- Floating stats -->
+  <div class="absolute top-12 left-12 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+    <div class="text-white text-2xl font-bold">500+</div>
+    <div class="text-white/70 text-xs">Attendees</div>
+  </div>
+  
+  <div class="absolute top-32 right-12 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+    <div class="text-white text-2xl font-bold">40+</div>
+    <div class="text-white/70 text-xs">Countries</div>
+  </div>
+  
+  <div class="absolute bottom-32 left-12 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+    <div class="text-white text-2xl font-bold">20+</div>
+    <div class="text-white/70 text-xs">TED Talks</div>
+  </div>
 
 </div>
